@@ -34,7 +34,7 @@ int csMemo(int n , vector<int> &dp) {
 
 
 
-/* count using memoization dp
+/* count using Tabulation dp
 	Time Complexity : O(N)
 	Siace Complexity : O(N) only for array space
 */
