@@ -1,3 +1,9 @@
+/*
+	Given an array representing money, find max amount, that can
+	be robbed wihtout choosing the adjacent houses
+	eg :  [2,7,9,3,1]  max_amount = 2 + 9 + 1 = 12
+*/
+
 #include<bits/stdc++.h>
 #include<string.h>
 using namespace std;
@@ -40,9 +46,9 @@ int maxAjTab(int n, int arr[]) {
 	vector<int> dp(n , 0);
 	dp[0] = arr[0];
 	for (int i = 1; i < n; i++) {
-		int pick = INT_MIN;
+		int pick = arr[i];
 		if (i > 1) {
-			pick = arr[i] + dp[i - 2];
+			pick += dp[i - 2];
 		}
 		int notPick = 0 + dp[i - 1];
 		dp[i] = max(pick, notPick);
@@ -60,9 +66,9 @@ int maxAjSpace(int n, int arr[]) {
 	int prev2 = 0;
 	int curri = 0;
 	for (int i = 1; i < n; i++) {
-		int pick = INT_MIN;
+		int pick = arr[i] ;
 		if (i > 1) {
-			pick = arr[i] + prev2;
+			pick +=  prev2;
 		}
 		int notPick = 0 + prev;
 		curri = max(pick, notPick);
